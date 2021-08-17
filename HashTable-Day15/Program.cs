@@ -29,6 +29,8 @@ namespace HashTable_Day15
             mapNode.Add("18", "situations");
             mapNode.GetFreq("paranoid");
             mapNode.DisplayFrequency();
+            mapNode.RemoveValue("avoidable");
+            mapNode.GetFreq("avoidable");
         }
     }
 }

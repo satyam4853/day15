@@ -13,8 +13,10 @@ namespace HashTable_Day15
     }
     public class MyMapNode<K, V>
     {
+
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
+
         public MyMapNode(int size)
         {
             this.size = size;
@@ -155,6 +157,28 @@ namespace HashTable_Day15
                         continue;
                     else
                         obj.freq = GetFreq(obj.Value);
+                }
+            }
+        }
+        /// <summary>
+        /// Removes the key depending on the value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public void RemoveValue(V value)
+        {
+            foreach (LinkedList<KeyValue<K, V>> list in items)
+            {
+                if (list == null)
+                    continue;
+                foreach (KeyValue<K, V> obj in list)
+                {
+                    if (obj.Equals(null))
+                        continue;
+                    if (obj.Value.Equals(value))
+                    {
+                        Remove(obj.Key);
+                        break;
+                    }
                 }
             }
         }
